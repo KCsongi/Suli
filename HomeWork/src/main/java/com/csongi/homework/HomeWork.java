@@ -25,6 +25,8 @@ public class HomeWork {
         System.out.println(list2.getItemPrice(0));
         System.out.println("Az asztal ára: " + list2.getItemPrice(1));
         System.out.println("Total: " + list2.getTotal());
+        
+        System.out.println("RealPrice::: " + list2.getItemRealPrice(3));
         //System.out.println(list2.getItemPrice(0));
         
         //System.out.println(list2.getItemName(1));

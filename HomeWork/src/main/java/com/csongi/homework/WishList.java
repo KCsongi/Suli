@@ -46,6 +46,14 @@ public class WishList{
         
         return 0;
     }
+    public int getItemRealPrice(int index) {
+        if(index >= 0 && index < items.size()) {
+            
+            return items.get(index).getPrice() - addMoney(index);
+        }
+        
+        return 0;
+    }
     
     public void clear() {
         items.clear();
@@ -61,13 +69,14 @@ public class WishList{
                 System.out.println(items.get(i) + " nevezetű termékből levontunk: " + a);
                 b = getItemPrice(i) - a;
                 System.out.println("Így a " + items.get(i) + " új ára: " + b);
+                return b;
             } else {
             a = items.get(i).getPrice() - a;
             System.out.println("A termék: " + items.get(i) + " a levont összeg: " + money);
-            return a;
+            //return a;
             }
         }
-        return 0;
+        return a;
     }
 
     @Override

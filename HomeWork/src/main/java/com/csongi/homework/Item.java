@@ -26,9 +26,7 @@ public class Item {
     public void setPrice(int price) {
         this.price = price;
     }
-    public void addMoneyy(int money) {
-         savedMoney -= money;
-     }
+    
 
     @Override
     public String toString() {
