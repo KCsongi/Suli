@@ -15,5 +15,7 @@ public class HomeWork {
         
         WishList list = new WishList();
         list.addItem(wish, price);
+        
+        list.getItem();
     }
 }

@@ -11,6 +11,8 @@ public class WishList {
         items.add(item);
     }
     public void getItem() {
-        
+        for(Item item : items) {
+            System.out.println("A kosárba lévő termékek: " + item);
+        }
     }
 }

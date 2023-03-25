@@ -26,5 +26,7 @@ public class Item {
     public void setPrice(int price) {
         this.price = price;
     }
-    
+    public void addMoney(int money) {
+         savedMoney += money;
+     }
 }
