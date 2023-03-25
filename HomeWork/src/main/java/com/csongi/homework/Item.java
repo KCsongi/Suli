@@ -3,7 +3,7 @@ package com.csongi.homework;
 public class Item {
     private String name;
     private int price;
-    private int savedMoney;
+    public int savedMoney;
 
     public Item(String name, int price) {
         this.name = name;
@@ -26,10 +26,13 @@ public class Item {
     public void setPrice(int price) {
         this.price = price;
     }
-    public void addMoney(int money) {
-         savedMoney += money;
+    public void addMoneyy(int money) {
+         savedMoney -= money;
      }
 
-    
+    @Override
+    public String toString() {
+        return "Item{" + "name=" + name + ", price=" + price + ", savedMoney=" + savedMoney + '}';
+    }
     
 }
