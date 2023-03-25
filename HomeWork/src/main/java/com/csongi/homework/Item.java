@@ -1,7 +1,7 @@
 package com.csongi.homework;
 
 public class Item {
-     private String name;
+    private String name;
     private int price;
     private int savedMoney;
 
@@ -29,4 +29,7 @@ public class Item {
     public void addMoney(int money) {
          savedMoney += money;
      }
+
+    
+    
 }
