@@ -6,12 +6,14 @@ public class Item {
     private String name;
     private int price;
     private int saveMoney;
+    private double percentage;
     private ArrayList<Item> items;
     
     public Item(String name, int price) {
         this.name = name;
         this.price = price;
         saveMoney = 0;
+        percentage = 0;
         items = new ArrayList<>();
         //items.add(this);
     }
@@ -49,6 +51,9 @@ public class Item {
             if(items.size() > 1) {
                 System.out.println(items.get(i) + " nevezetű termékből levontunk " + a);
                 b = items.get(i).price - a;
+                if(b <= 0) {
+                    b = 0;
+                }
                 System.out.println("Így a termék új ára: " + b);
             } else {
                 this.price -= saveMoney;
@@ -76,13 +81,20 @@ public class Item {
         //return price - saveMoney / items.size();
         return 0;
     }
+    
+    public void clearItem(int index) {
+        if(percentage >= 100) {
+            items.remove(index);
+        }
+    }
     public void percentageSavings(int index) {
         double realPrice = getPrice(index);
         
         double b = saveMoney / realPrice;
         double c = b * 100;
         System.out.println("SavedMoney: " + saveMoney);
-        System.out.println("Ennyi százalék: " + c);
+        System.out.println("Ennyi százalék: " + c + "%");
+        percentage = c;
     }
     
     @Override

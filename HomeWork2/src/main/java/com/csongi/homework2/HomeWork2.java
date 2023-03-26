@@ -6,6 +6,7 @@ public class HomeWork2 {
         Item item = new Item();
         item.addNewItem("Szék", 500);
         item.addNewItem("Ház", 50000);
+        item.addNewItem("Asztal", 8965);
         
         
         //item.addMoney(100);
@@ -17,12 +18,17 @@ public class HomeWork2 {
         System.out.println(item.getSize());
         
         System.out.println("-".repeat(20));
-        item.addMoney(15896);
+        item.addMoney(5000);
         System.out.println(item.getPrice(0));
+        System.out.println("-".repeat(20));
         System.out.println(item.getRealPrice(0));
         System.out.println(item.getPrice(1));
         System.out.println(item.getRealPrice(1));
         
         item.percentageSavings(1);
+        item.clearItem(0);
+        item.clearItem(1);
+        
+        System.out.println(item.getSize());
     }
 }
