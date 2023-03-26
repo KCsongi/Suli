@@ -17,12 +17,12 @@ public class HomeWork2 {
         System.out.println(item.getSize());
         
         System.out.println("-".repeat(20));
-        item.addMoney(90);
+        item.addMoney(15896);
         System.out.println(item.getPrice(0));
         System.out.println(item.getRealPrice(0));
         System.out.println(item.getPrice(1));
         System.out.println(item.getRealPrice(1));
         
-        
+        item.percentageSavings(1);
     }
 }

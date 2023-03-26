@@ -76,6 +76,14 @@ public class Item {
         //return price - saveMoney / items.size();
         return 0;
     }
+    public void percentageSavings(int index) {
+        double realPrice = getPrice(index);
+        
+        double b = saveMoney / realPrice;
+        double c = b * 100;
+        System.out.println("SavedMoney: " + saveMoney);
+        System.out.println("Ennyi százalék: " + c);
+    }
     
     @Override
     public String toString() {
