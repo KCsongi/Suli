@@ -9,5 +9,7 @@ public class HomeWork2 {
         
         System.out.println(item.getPrice(2));
         item.addMoney(100);
+        
+        
     }
 }
