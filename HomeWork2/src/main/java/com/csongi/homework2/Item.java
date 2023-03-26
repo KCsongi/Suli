@@ -53,6 +53,9 @@ public class Item {
                 b = items.get(i).price - a;
                 if(b <= 0) {
                     b = 0;
+                    int c = a - items.get(i).price;
+                    System.out.println(c);
+                    //money += c;
                 }
                 System.out.println("Így a termék új ára: " + b);
             } else {
@@ -82,11 +85,11 @@ public class Item {
         return 0;
     }
     
-    public void clearItem(int index) {
-        if(percentage >= 100) {
-            items.remove(index);
-        }
-    }
+//    public void clearItem(int index) {
+//        if(percentage >= 100) {
+//            items.remove(index);
+//        }
+//    }
     public void percentageSavings(int index) {
         double realPrice = getPrice(index);
         
@@ -95,6 +98,13 @@ public class Item {
         System.out.println("SavedMoney: " + saveMoney);
         System.out.println("Ennyi százalék: " + c + "%");
         percentage = c;
+        
+        if(percentage >= 100){
+            System.out.println(items.get(index).name+" nevezetű terméket sikeresen megvette");
+            items.remove(index);
+        } else {
+            
+        }
     }
     
     @Override

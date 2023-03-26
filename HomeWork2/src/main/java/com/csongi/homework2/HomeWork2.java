@@ -25,9 +25,8 @@ public class HomeWork2 {
         System.out.println(item.getPrice(1));
         System.out.println(item.getRealPrice(1));
         
-        item.percentageSavings(1);
-        item.clearItem(0);
-        item.clearItem(1);
+        item.percentageSavings(0);
+        
         
         System.out.println(item.getSize());
     }
