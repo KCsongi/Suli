@@ -102,8 +102,6 @@ public class Item {
         if(percentage >= 100){
             System.out.println(items.get(index).name+" nevezetű terméket sikeresen megvette");
             items.remove(index);
-        } else {
-            
         }
     }
     
