@@ -45,14 +45,14 @@ public class WishList{
         return null;
     }
     
-    public String getItemByName(String name) {
+    public Item getItemByName(String name) {
         for (int i = 0; i < items.size(); i++) {
             if(items.get(i).getName().equalsIgnoreCase(name)) {
-                return items.get(i).toString();
+                return items.get(i);
             }
             
         }
-        return "Nincs ilyen elem";
+        return null;
     }
     
     public int getItemPrice(int index) {
