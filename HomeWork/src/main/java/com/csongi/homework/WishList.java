@@ -1,6 +1,7 @@
 package com.csongi.homework;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class WishList{
    
@@ -42,6 +43,16 @@ public class WishList{
             return items.get(index).getName();
         }
         return null;
+    }
+    
+    public String getItemByName(String name) {
+        for (int i = 0; i < items.size(); i++) {
+            if(items.get(i).getName().equalsIgnoreCase(name)) {
+                return items.get(i).toString();
+            }
+            
+        }
+        return "Nincs ilyen elem";
     }
     
     public int getItemPrice(int index) {
@@ -108,7 +119,40 @@ public class WishList{
 
     @Override
     public String toString() {
-        return "WishList{" + "items=" + items + '}';
+        return "WishList{" + "items=" + items + ", savedMoney=" + savedMoney + ", percentage=" + percentage + '}';
     }
+
+    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.items);
+        hash = 79 * hash + this.savedMoney;
+        hash = 79 * hash + (int) (Double.doubleToLongBits(this.percentage) ^ (Double.doubleToLongBits(this.percentage) >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final WishList other = (WishList) obj;
+        if (this.savedMoney != other.savedMoney) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.percentage) != Double.doubleToLongBits(other.percentage)) {
+            return false;
+        }
+        return Objects.equals(this.items, other.items);
+    }
+    
     
 }

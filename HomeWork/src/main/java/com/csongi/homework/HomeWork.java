@@ -44,6 +44,8 @@ public class HomeWork {
         list2.percentageSavings(0);
         list2.percentageSavings(1);
         list2.percentageSavings(2);
+        
+        System.out.println(list2.getItemByName("akarmi"));
         //System.out.println(list2.getItemPrice(0));
         
         //System.out.println(list2.getItemName(1));
