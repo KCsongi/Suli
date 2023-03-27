@@ -22,7 +22,7 @@ public class HomeWork {
         list2.addItem("Ház", 1000);
         
         System.out.println(list2.getSize());
-        System.out.println(list2.addMoney(300));
+        System.out.println(list2.addMoney(500));
         System.out.println(list2.getItemPrice(0));
         System.out.println("Az asztal ára: " + list2.getItemPrice(1));
         System.out.println("Total: " + list2.getTotal());
@@ -39,6 +39,11 @@ public class HomeWork {
         System.out.println(list2.getItemRealPrice(1));
         System.out.println(list2.getItemPrice(2));
         System.out.println(list2.getItemRealPrice(2));
+        
+        System.out.println();
+        list2.percentageSavings(0);
+        list2.percentageSavings(1);
+        list2.percentageSavings(2);
         //System.out.println(list2.getItemPrice(0));
         
         //System.out.println(list2.getItemName(1));

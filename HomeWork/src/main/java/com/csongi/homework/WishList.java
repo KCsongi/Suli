@@ -4,13 +4,15 @@ import java.util.ArrayList;
 
 public class WishList{
    
-    ArrayList<Item> items;
+    private ArrayList<Item> items;
     private int savedMoney;
+    private double percentage;
 
 
     public WishList() {
         this.items = new ArrayList<>();
         savedMoney = 0;
+        percentage = 0;
     }
     
     
@@ -34,12 +36,14 @@ public class WishList{
         }
         return total;
     }
+    
     public String getItemName(int index) {
         if(index >= 0 && index < items.size()) {
             return items.get(index).getName();
         }
         return null;
     }
+    
     public int getItemPrice(int index) {
         if(index >= 0 && index < items.size()) {
             
@@ -48,6 +52,7 @@ public class WishList{
         
         return 0;
     }
+    
     public int getItemRealPrice(int index) {
         if(index >= 0 && index < items.size()) {
             int real = savedMoney / items.size();
@@ -59,12 +64,29 @@ public class WishList{
         return 0;
     }
     
+    public void percentageSavings(int index) {
+        double realPrice = items.get(index).getPrice();
+        
+        double b = savedMoney / realPrice;
+        double d = b / items.size();
+        double c = d * 100;
+        System.out.println(items.get(index).getName()+" nevezetű termékből " + c + "% teljesítve");
+        percentage = c;
+        
+        if(percentage >= 100){
+            System.out.println(items.get(index).getName()+" nevezetű terméket sikeresen megvette");
+            items.remove(index);
+        }
+    }
+    
     public void clear() {
         items.clear();
     }
+    
     public int getSize() {
         return items.size();
     }
+    
     public int addMoney(int money) {
         savedMoney = money;
         int a = money / items.size();
