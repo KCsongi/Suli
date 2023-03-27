@@ -5,10 +5,12 @@ import java.util.ArrayList;
 public class WishList{
    
     ArrayList<Item> items;
+    private int savedMoney;
 
 
     public WishList() {
         this.items = new ArrayList<>();
+        savedMoney = 0;
     }
     
     
@@ -48,8 +50,10 @@ public class WishList{
     }
     public int getItemRealPrice(int index) {
         if(index >= 0 && index < items.size()) {
-            
-            return items.get(index).getPrice() - addMoney(index);
+            int real = savedMoney / items.size();
+            int a = items.get(index).getPrice() - real;
+            return a;
+            //return items.get(index).getPrice() - addMoney(index);
         }
         
         return 0;
@@ -62,6 +66,7 @@ public class WishList{
         return items.size();
     }
     public int addMoney(int money) {
+        savedMoney = money;
         int a = money / items.size();
         int b;
         for (int i = 0; i < items.size(); i++) {
