@@ -1,20 +1,8 @@
 package com.csongi.homework;
 
-import java.util.Scanner;
-
 public class HomeWork {
 
     public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in);
-//        
-//        System.out.println("Üdvözlöm. Kérjem írjon be egy kívánságot: ");
-//        String wish = scanner.nextLine();
-//        
-//        System.out.println("Kérem írja be az árát: ");
-//        int price = scanner.nextInt();
-//        
-//        WishList list = new WishList();
-//        list.addItem(wish, price);
         
         WishList list2 = new WishList();
         list2.addItem("Szék", 300);
@@ -23,21 +11,21 @@ public class HomeWork {
         
         System.out.println(list2.getSize());
         System.out.println(list2.addMoney(500));
-        System.out.println(list2.getItemPrice(0));
-        System.out.println("Az asztal ára: " + list2.getItemPrice(1));
+        System.out.println(list2.getItemOriginalPrice(0));
+        System.out.println("Az asztal ára: " + list2.getItemOriginalPrice(1));
         System.out.println("Total: " + list2.getTotal());
         
         System.out.println("RealPrice::: " + list2.getItemRealPrice(3));
         
-        System.out.println("ÁR: " + list2.getItemPrice(1));
+        System.out.println("ÁR: " + list2.getItemOriginalPrice(1));
         System.out.println("ÁR: " + list2.getItemRealPrice(1));
         
         System.out.println("-".repeat(20));
-        System.out.println(list2.getItemPrice(0));
+        System.out.println(list2.getItemOriginalPrice(0));
         System.out.println(list2.getItemRealPrice(0));
-        System.out.println(list2.getItemPrice(1));
+        System.out.println(list2.getItemOriginalPrice(1));
         System.out.println(list2.getItemRealPrice(1));
-        System.out.println(list2.getItemPrice(2));
+        System.out.println(list2.getItemOriginalPrice(2));
         System.out.println(list2.getItemRealPrice(2));
         
         System.out.println();
@@ -59,9 +47,13 @@ public class HomeWork {
         
         WishList list4 = new WishList();
         list4.addItem("Fa", 100);
-        list4.addMoney(110);
+        System.out.println("Fa item OGprice" + list4.getItemOriginalPrice(0));
+        System.out.println("Fa item realPrice" + list4.getItemRealPrice(0));
+        list4.addMoney(50);
+        System.out.println("Fa item OGprice" + list4.getItemOriginalPrice(0));
+        System.out.println("Fa item realPrice" + list4.getItemRealPrice(0));
         System.out.println(list4.getSize());
-        //System.out.println(list2.getItemPrice(0));
+        //System.out.println(list2.getItemOriginalPrice(0));
         
         //System.out.println(list2.getItemName(1));
         

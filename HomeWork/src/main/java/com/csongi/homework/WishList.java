@@ -9,27 +9,16 @@ public class WishList{
     private int savedMoney;
     private double percentage;
 
-
     public WishList() {
         this.items = new ArrayList<>();
         savedMoney = 0;
         percentage = 0;
     }
     
-    
     public void addItem(String name, int price) {
         Item item = new Item(name, price);
         items.add(item);
     }
-//    public String getItem() {
-//        if(!items.isEmpty()) {
-//        for(Item item : items) {
-//            //System.out.println("A kosárba lévő termékek: " + item.getName() + " az ára: " + item.getPrice());
-//            return item.getName() + " " + item.getPrice();
-//         }
-//        }
-//        return "Üres";
-//    }
     
     public int getTotal() {
         int realPrice = 0;
@@ -66,7 +55,7 @@ public class WishList{
         return null;
     }
     
-    public int getItemPrice(int index) {
+    public int getItemOriginalPrice(int index) {
         if(index >= 0 && index < items.size()) {
             
             return items.get(index).getPrice();
@@ -117,7 +106,7 @@ public class WishList{
             if(items.size() > 1) {
                 do{
                 System.out.println(items.get(i) + " nevezetű termékből levontunk: " + a);
-                b = getItemPrice(i) - a;
+                b = getItemOriginalPrice(i) - a;
                 System.out.println("Így a " + items.get(i) + " új ára: " + b);
                 return b;
                 }while(items.isEmpty());
@@ -138,12 +127,11 @@ public class WishList{
             }
         }
     }
+    
     @Override
     public String toString() {
         return "WishList{" + "items=" + items + ", savedMoney=" + savedMoney + ", percentage=" + percentage + '}';
     }
-
-    
 
     @Override
     public int hashCode() {
@@ -174,6 +162,4 @@ public class WishList{
         }
         return Objects.equals(this.items, other.items);
     }
-    
-    
 }
