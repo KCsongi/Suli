@@ -97,7 +97,7 @@ public class WishList{
         
         if(percentage >= 100){
             System.out.println(items.get(index).getName()+" nevezetű terméket sikeresen megvette");
-            items.remove(index);
+            //items.remove(index);
         }
     }
     
@@ -120,16 +120,24 @@ public class WishList{
                 b = getItemPrice(i) - a;
                 System.out.println("Így a " + items.get(i) + " új ára: " + b);
                 return b;
-                }while(!items.isEmpty());
+                }while(items.isEmpty());
             } else {
             a = items.get(i).getPrice() - a;
             System.out.println("A termék: " + items.get(i) + " a levont összeg: " + money);
             //return a;
             }
+            delete();
         }
         return a;
     }
 
+    private void delete() {
+        for (int i = 0; i < items.size(); i++) {
+            if(getItemRealPrice(i) <= 0) {
+                items.remove(i);
+            }
+        }
+    }
     @Override
     public String toString() {
         return "WishList{" + "items=" + items + ", savedMoney=" + savedMoney + ", percentage=" + percentage + '}';

@@ -55,6 +55,12 @@ public class HomeWork {
         System.out.println(list3.getTotal());
         list3.addMoney(10);
         System.out.println(list3.getTotal());
+        list3.percentageSavings(1);
+        
+        WishList list4 = new WishList();
+        list4.addItem("Fa", 100);
+        list4.addMoney(110);
+        System.out.println(list4.getSize());
         //System.out.println(list2.getItemPrice(0));
         
         //System.out.println(list2.getItemName(1));

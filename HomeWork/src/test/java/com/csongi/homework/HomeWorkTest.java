@@ -1,6 +1,5 @@
 package com.csongi.homework;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,6 +20,7 @@ public class HomeWorkTest {
         assertEquals(list.getSize(), 2, "getSize");
         assertEquals(list.getTotal(), 700, "getTotal");
         assertEquals(list.getItemRealPrice(0), 500, "getItemRealPrice");
+        
         
         WishList list2 = new WishList();
         list2.addItem("Pohár", 100);
