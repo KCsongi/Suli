@@ -14,6 +14,9 @@ public class HomeWorkTest {
     @Test
     public void testMain() {
         WishList list = new WishList();
+        list.addItem("Asztal", 500);
+        list.addItem("Szék", 200);
+        assertEquals(list.getItemName(1), "Szék", "getItemByName");
     }
     
 }
