@@ -53,9 +53,7 @@ public class HomeWork {
         list3.addItem("Répa", 100);
         list3.addItem("Retek", 200);
         System.out.println(list3.getTotal());
-        System.out.println(list3.getTotal());
         list3.addMoney(10);
-        System.out.println(list3.getTotal());
         System.out.println(list3.getTotal());
         //System.out.println(list2.getItemPrice(0));
         

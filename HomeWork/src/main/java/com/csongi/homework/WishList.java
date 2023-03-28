@@ -115,11 +115,12 @@ public class WishList{
         int b;
         for (int i = 0; i < items.size(); i++) {
             if(items.size() > 1) {
+                do{
                 System.out.println(items.get(i) + " nevezetű termékből levontunk: " + a);
                 b = getItemPrice(i) - a;
                 System.out.println("Így a " + items.get(i) + " új ára: " + b);
                 return b;
-                
+                }while(!items.isEmpty());
             } else {
             a = items.get(i).getPrice() - a;
             System.out.println("A termék: " + items.get(i) + " a levont összeg: " + money);
