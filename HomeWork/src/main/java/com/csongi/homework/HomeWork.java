@@ -47,6 +47,16 @@ public class HomeWork {
         
         System.out.println(list2.getItemByName("szék"));
         System.out.println(list2.getItemName(0));
+        
+        System.out.println("-".repeat(20));
+        WishList list3 = new WishList();
+        list3.addItem("Répa", 100);
+        list3.addItem("Retek", 200);
+        System.out.println(list3.getTotal());
+        System.out.println(list3.getTotal());
+        list3.addMoney(10);
+        System.out.println(list3.getTotal());
+        System.out.println(list3.getTotal());
         //System.out.println(list2.getItemPrice(0));
         
         //System.out.println(list2.getItemName(1));

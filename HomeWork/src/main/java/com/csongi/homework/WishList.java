@@ -30,12 +30,23 @@ public class WishList{
 //        }
 //        return "Üres";
 //    }
+    
     public int getTotal() {
+        int realPrice = 0;
+        if(savedMoney == 0) {
+            
         int total = 0;
         for(Item item : items) {
             total += item.getPrice();
         }
         return total;
+        }else {
+            for (int i = 0; i < items.size(); i++) {
+                realPrice += getItemRealPrice(i);
+                
+            }
+        }
+        return realPrice;
     }
     
     public String getItemName(int index) {
@@ -108,6 +119,7 @@ public class WishList{
                 b = getItemPrice(i) - a;
                 System.out.println("Így a " + items.get(i) + " új ára: " + b);
                 return b;
+                
             } else {
             a = items.get(i).getPrice() - a;
             System.out.println("A termék: " + items.get(i) + " a levont összeg: " + money);
