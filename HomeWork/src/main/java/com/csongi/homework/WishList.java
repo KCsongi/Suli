@@ -90,10 +90,6 @@ public class WishList{
         }
     }
     
-    public void clear() {
-        items.clear();
-    }
-    
     public int getSize() {
         return items.size();
     }
