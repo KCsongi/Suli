@@ -1,0 +1,40 @@
+--Melyik volt az utolsó 3 projekt, amin a 25-ös partnerrel együtt dolgoztunk?
+ ->SELECT * FROM db__income WHERE PARTNER = 25 ORDER BY approved DESC LIMIT 3;
+
+--Hány projektünk volt 2020-ban, amit a 2-es partner számára kiviteleztünk?
+ ->SELECT COUNT(project) FROM db__income WHERE PARTNER = 2 AND created > '2020-01-01' AND created < '2020-12-31';
+
+--Melyik volt a 10 legnagyobb bevételt hozó projekt? (lássuk a partner nevét, az összeget és a projektet)
+SELECT partner, amount, project FROM db__income ORDER BY amount DESC LIMIT 10;
+
+ ->SELECT db__partners.name, db__income.amount, db__income.project FROM db__income INNER JOIN db__partners ON db__income.partner = db__partners.id ORDER BY amount DESC LIMIT 10;
+
+--Melyek az aktuális kintlévőségek? (azok a sorok, ahol az "approved" még NULL értékű)
+ ->SELECT * FROM db__income WHERE approved IS NULL;
+
+--Mennyi a teljes kintlévőség? (az "amount" összege a kintlévőségeknél)
+SELECT COUNT(amount) FROM db__income WHERE approved IS NULL;
+
+ ->SELECT SUM(amount) FROM db__income WHERE approved IS NULL;
+
+Melyek a 2022 eleje óta létrejött kifizetett "java" projektek? (ahol az "approved" nem üres és a "project" arra végződik, hogy "java")
+ ->SELECT * FROM db__income WHERE project LIKE '%java' AND approved > '2022-01-01';
+ 
+ INKÁBB EZ A JÓ -> SELECT * FROM db__income WHERE project LIKE '% java' AND created > '2022-01-01' AND approved IS NOT NULL;
+
+Melyik partner mennyi feladattal bízott meg minket a 2022-es évben? (partner neve és projektek száma)
+SELECT db__partners.name, COUNT(project) AS Projects FROM db__income INNER JOIN db__partners ON db__income.partner = db__partners.id GROUP BY db__partners.name;
+
+ ->SELECT db__partners.name, COUNT(project) AS Projects FROM db__income INNER JOIN db__partners ON db__income.partner = db__partners.id WHERE created > '2022-01-01' AND created < '2022-12-31' GROUP BY db__partners.name;
+
+
+
+
+
+Melyek azok a 2022 előtti projektek, amelyeknél szervert állítottunk be? (arra végződik, hogy " server" - az "observer"-re végződőek nem ilyenek)
+értesítenünk kell az illetékeseket: lássuk a kapcsolódó partner elérhetőségét
+minden partnert csak egyszer lássunk, de legyen mellette, hány ilyen projekt kapcsolódik hozzá
+a rekordokat rendezzünk ezem darabszám szerint csökkenő sorrendbe (legelső az legyen, akinél a legtöbb szerver vár karbantartásra)
+
+ ITT HA NEM ADOK A COUNT(project)-nek nevet akkor az ORDER BY nál hogy hivatkozzak rá?
+ ->SELECT db__partners.name, db__partners.contact, COUNT(project) AS Projects FROM db__income INNER JOIN db__partners ON db__income.partner = db__partners.id WHERE project LIKE '% server' AND created < '2021-12-31' GROUP BY partner ORDER BY Projects DESC;
